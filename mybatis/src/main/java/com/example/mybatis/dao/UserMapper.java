@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-@CacheNamespace( )
+
 public interface UserMapper extends BaseMapper<Action> {
     List<Action> getActionList();
     @Select("select * from action where id >#{id}")

@@ -2,6 +2,7 @@ package com.example.mybatis;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.mybatis.dao.UserMapper;
+import com.example.mybatis.service.IUserService;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +17,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ActionTest {
     @Autowired
     private UserMapper userMapper;
-
+    @Autowired
+    private IUserService userService;
     @Test
     public void t() {
 //        JSONObject.toJSONString(userMapper.getActionList());
         System.out.println(JSONObject.toJSONString(userMapper.selectAll(1L)));
         System.out.println(JSONObject.toJSONString(userMapper.selectAll(1L)));
+    }
+    @Test
+    //测试mybatis事物
+    public void testTransaction() throws Exception {
+        userService.updateAction();
     }
 }
