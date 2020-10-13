@@ -5,4 +5,32 @@
         select *
         from action
     </select>
+    <select id="testCollection" resultMap="rsmap" >
+          select *
+        from action
+    </select>
+    <resultMap id="rsmap" type="com.example.mybatis.entity.Action">
+        <id property="id" column="id" />
+        <result property="actionName" column="action_name" />
+<!--        <association property="ref" column="" select="" />-->
+        <collection property="refs" column="id"  select="com.example.mybatis.dao.ActionPartRef.getPartRef" />
+    </resultMap>
+    <select id="testCollection2" resultMap="rsmap2" >
+          select action.*,action_part_relation.id as id2 ,action_part_relation.action_id,action_part_relation.action_part,
+          action_part_relation.part_name
+        from action inner join
+         action_part_relation  on action_part_relation.action_id = action.id
+    </select>
+
+    <resultMap id="rsmap2" type="com.example.mybatis.entity.Action">
+        <id property="id" column="id" />
+        <result property="actionName" column="action_name" />
+        <!--        <association property="ref" column="" select="" />-->
+        <collection property="refs" resultMap="com.example.mybatis.dao.ActionPartRef.partMap">
+            <id column="id2" property="id" />
+            <result column="action_part_relation.action.id" property="id" />
+            <result column="action_id" property="actionId" />
+            <result column="part_name" property="partName" />
+        </collection>
+    </resultMap>
 </mapper>

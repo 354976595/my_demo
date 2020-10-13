@@ -30,4 +30,17 @@ public class ActionTest {
     public void testTransaction() throws Exception {
         userService.updateAction();
     }
+    @Test
+    //测试一对一 一对多 1
+    public void testColle(){
+        System.out.println(JSONObject.toJSONString(userMapper.testCollection()));
+
+    }
+
+    @Test
+    //测试一对一 一对多 2
+    public void testColle2(){
+        System.out.println(JSONObject.toJSONString(userMapper.testCollection2()));
+
+    }
 }

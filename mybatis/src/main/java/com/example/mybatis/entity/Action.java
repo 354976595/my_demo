@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.List;
+
 @TableName("action")
 @Data
 public class Action {
@@ -12,4 +14,14 @@ public class Action {
     private Long id;
     @TableField("action_name")
     private String actionName;
+    /**
+     * 一对多
+     */
+    @TableField(exist = false)
+    private List<ActionPart> refs;
+    /**
+     * 一对一
+     */
+    @TableField(exist = false)
+    private Object ref;
 }

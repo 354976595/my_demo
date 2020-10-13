@@ -15,4 +15,7 @@ public interface UserMapper extends BaseMapper<Action> {
     List<Action> getActionList();
     @Select("select * from action where id >#{id}")
     List<Action> selectAll(@Param("id")Long id);
+
+    List<Object> testCollection();
+    List<Object> testCollection2();
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mybatis.dao.ActionPartRef">
+    <resultMap id="partMap" type="com.example.mybatis.entity.ActionPart">
+        <id property="id" column="id" />
+        <result property="actionId" column="action_id" />
+        <result property="actionPart" column="action_part"  />
+        <result property="partName" column="part_name" />
+    </resultMap>
+    <select id="getPartRef" resultMap="partMap">
+        select * from action_part_relation where action_id =#{actionId}
+    </select>
+</mapper>
