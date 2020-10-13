@@ -13,9 +13,24 @@ import java.util.List;
 
 public interface UserMapper extends BaseMapper<Action> {
     List<Action> getActionList();
-    @Select("select * from action where id >#{id}")
-    List<Action> selectAll(@Param("id")Long id);
 
+    @Select("select * from action where id >#{id}")
+    List<Action> selectAll(@Param("id") Long id);
+
+    /**
+     * 测试mybatis映射mapper1
+     *
+     * @return
+     */
     List<Object> testCollection();
+
+    /**
+     * 测试mybatis映射mapper2
+     *
+     * @return
+     */
     List<Object> testCollection2();
+
+    //测试动态sql
+    List<Object> getDynamicsql(@Param("action")Action action);
 }

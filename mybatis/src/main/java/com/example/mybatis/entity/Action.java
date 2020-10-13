@@ -24,4 +24,7 @@ public class Action {
      */
     @TableField(exist = false)
     private Object ref;
+
+    @TableField
+    private List<Long> primaryId;
 }

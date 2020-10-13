@@ -21,6 +21,31 @@
         from action inner join
          action_part_relation  on action_part_relation.action_id = action.id
     </select>
+    <select id="getDynamicsql" resultType="java.lang.Object">
+        select * from action
+        <where>
+            <if test="action.actionName!=''">
+               and action.action_name=#{action.actionName}
+            </if>
+            <!--choose when -->
+<!--            <choose>-->
+<!--                <when test="action.xxxx==1">-->
+<!--                    -->
+<!--                </when>-->
+<!--                <when test="action.xxxx==1">-->
+<!--                    -->
+<!--                </when>-->
+<!--                <otherwise></otherwise>-->
+<!--            </choose>-->
+
+            <if test="action.primaryId!=null and action.primaryId.size()>0">
+                and action.id in
+                <foreach collection="action.primaryId" close=")" index="index" item="item" open="(" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
 
     <resultMap id="rsmap2" type="com.example.mybatis.entity.Action">
         <id property="id" column="id" />
