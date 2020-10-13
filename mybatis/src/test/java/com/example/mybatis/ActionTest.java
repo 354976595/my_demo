@@ -32,14 +32,14 @@ public class ActionTest {
     }
     @Test
     //测试一对一 一对多 1
-    public void testColle(){
+    public void testCollection1(){
         System.out.println(JSONObject.toJSONString(userMapper.testCollection()));
 
     }
 
     @Test
     //测试一对一 一对多 2
-    public void testColle2(){
+    public void testCollection2(){
         System.out.println(JSONObject.toJSONString(userMapper.testCollection2()));
 
     }
