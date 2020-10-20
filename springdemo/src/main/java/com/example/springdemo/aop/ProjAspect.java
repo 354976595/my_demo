@@ -19,9 +19,9 @@ public class ProjAspect  {
         for (Field declaredField : joint.getSignature().getDeclaringType().getDeclaredFields()) {
             System.out.println("felid class name -------"+declaredField.getType().getName());
         }
-        if(joint.getArgs()==null){
-           throw new Exception("cnmmmlssdee");
-        }
+//        if(joint.getArgs()==null){
+//           throw new Exception("cnmmmlssdee");
+//        }
         /**
          * 切面函数的参数
          */

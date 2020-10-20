@@ -1,2 +1,18 @@
 server:
   port: 1001
+spring:
+  banner:
+    location: banner.txt
+  mail:
+    host: smtp.163.com
+    username: 354976595.love@163.com
+    password: QVRJXJNJWVGHQVUL
+testbean:
+  map: {k1: v1,k2: v2}
+  list:
+    - 1
+    - 2
+    - 3
+  name: xjd
+  age: 24
+
